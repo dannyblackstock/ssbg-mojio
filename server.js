@@ -84,7 +84,7 @@ app.get('/getUserName', function (req, res) {
       // login successful
       // write your logic here
       console.log('success');
-      mojio_client.get().me().then(function(result, error) {
+      mojio_client.getPath('/v2/trips/').then(function(result, error) {
           console.log(result);
           data = result;
           res.send(result);

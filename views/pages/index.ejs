@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+
+
 </head>
 <body class="container">
 
@@ -8,12 +13,76 @@
     </header>
 
     <main>
-        <div class="jumbotron">
-            <h1>This is great</h1>
-            <p>Welcome to templating using EJS</p>
-            <button id="press-me">Danny</button>
-            <button id="press-josh">Josh</button>
+      <h1>Drivio</h1>
+      <div class="bluebox">
+        <h2>
+          You have met your daily target!
+        </h2>
+        <p id="dailyAvgTotal">23</p>
+        <div class="drivingAvg">
+          <p class="dailyAvg"><strong id="dailyCityAvg">19</strong> city</p>
+          <p class="dailyAvg"><strong id="dailyHwAvg">25</strong> highway</p>
         </div>
+        <p class="mpgwhite">Miles per gallon</p>
+      </div>
+      <div class="whitebox">
+        <h4 class="epa">
+          EPA Estimates
+        </h4>
+        <p class="govVals">Highway</p>
+        <p class="govVals">Overall</p>
+        <p class="govVals">City</p>
+
+        <div class="col1-1-1">
+          <p id="govHW">26</p>
+          <p class="mpg">mpg</p>
+        </div>
+        <div class="col1-1-1">
+          <p id="govOver">26</p>
+          <p class="mpg">mpg</p>
+        </div>
+        <div class="col1-1-1">
+          <p id="govCity">26</p>
+          <p class="mpg">mpg</p>
+        </div>
+      </div>
+      
+      <h4 class="epa">
+          Today's Driving Records
+      </h4>
+
+      <div class="record">
+        <div class="fuelAvg">
+          <p id="fuelEcoTrips"></p>
+          <p class="mpg">mpg</p>
+        </div>
+        <div class="tripDur">
+          <p class="lt">Trip Duration</p>
+          <p id="ltLength"></p>
+          <p class="mpg">minutes</p>
+        </div>
+        <div class="avgSpeed">
+          <p class="lt">Avg Speed</p>
+          <p id="ltDistance"></p>
+          <p class="mpg">km/h</p>
+        </div>
+      </div>
+
+
+        <div>
+          <p class="left">Last Trip Average</p>
+          <p class="right" id="fuelEcoTrips"></p>
+        </div>
+        <div>
+          <p class="left">Last Trip Duration</p>
+          <p class="right" id="ltLength"></p>
+        </div>
+        <div>
+          <p class="left">Last Trip Distance</p>
+          <p class="center" id="ltDistance"></p>
+          <p class="right">KM</p>
+        </div>
+
     </main>
 
     <footer>

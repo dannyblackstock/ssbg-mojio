@@ -5,7 +5,7 @@ body, div {
 
 
 
-h1 {
+h1, .name {
 	margin-top: 2em;
 	width: 100%;
 	text-align: center;
@@ -48,7 +48,7 @@ li {
 	margin-left: 5vw;
 }
 
-.epa {
+.epa, .rank_h4{
 	width: 100%;
 	text-align: center;
 	font-family: 'Lato', sans-serif;
@@ -97,7 +97,7 @@ li {
 	margin-top: 0px;
 }
 
-#fuelEcoTrips {
+#fuelEcoTrips{
 	position: relative;
 	display: inline-block;
 	font-size: 4em;
@@ -179,4 +179,95 @@ h2 {
 
 strong {
 	font-weight: 300;
+}
+
+
+.leaderboard {
+	width: 100vw;
+	height: 100vh;
+	/*background-color: #5AC8FA;*/
+	/*position: absolute;
+	top: 0px;
+	right: 100vw;*/
+
+	border: 1px solid #5AC8FA;
+
+}
+
+.leaderboard_h1 {
+	padding-bottom: 1em;
+	border-bottom: 1px solid #999;
+}
+
+.first {
+	border: 1px solid #999;
+	width: 90vw;
+	margin-left: 5vw;
+/*	padding: 5vw;
+	padding-top: 0px;*/
+}
+
+.gold {
+	margin: 0px;
+	color: #FFD700;
+	font-size: 4em;
+}
+
+.name{
+	color: #000;
+		margin:	0px;
+
+}
+
+.carType {
+	width: 100%;
+	text-align: center;
+}
+
+.id_box {
+	border-bottom: 1px solid #999;
+}
+
+.rank, .medal {
+	width: 20%;
+	position: relative;
+	display: inline-block;
+/*	height: 14vh;
+*/
+}
+
+.rank_h4 {
+	margin: 0px;
+}
+
+.identification {
+	width: 59%;
+	position: relative;
+	display: inline-block;
+}
+
+.medal {
+	background-color: #FFD700;
+	height: 100%;
+	padding-bottom: 1em;
+	text-align: center;
+	color: #FFF;
+}
+
+.sortbar {
+	width: 90%;
+	border:  1px solid #999;
+	margin-left: 5vw;
+	margin-bottom: 5vw;
+	/*height: 8vh*/
+}
+.sb_weekly, .sb_filters, .sb_mpg {
+	display: inline-block;
+	position: relative;
+	margin:	0px;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	width: 33%;
+	text-align: center;
+	/*padding-bottom: 1em;*/
 }

@@ -4,6 +4,7 @@
 //   res.end('Hello World\n');
 // }).listen(1337, '127.0.0.1');
 // console.log('Server running at http://127.0.0.1:1337/');
+var Promise = require('es6-promise').Promise;
 
 var express = require('express');
 var MojioClientLite= require("mojio-client-lite");
@@ -84,7 +85,38 @@ app.get('/getUserName', function (req, res) {
       // login successful
       // write your logic here
       console.log('success');
-      mojio_client.get().me().then(function(result, error) {
+      mojio_client.getPath('/v2/trips/').then(function(result, error) {
+          console.log(result);
+          data = result;
+          res.send(result);
+      });
+  })
+
+  // res.send(data);
+});
+
+app.get('/getUser2', function (req, res) {
+  var config = {
+      application: 'c1616a16-9cd1-4b8a-9201-5fd6dcfe68a2',
+      secret:'34ce1d9d-6251-4652-8539-5ffc5be3d0d7'
+  };
+
+  var mojio_client = new MojioClientLite(config);
+  var data;
+
+  // No authorized user, redirect to Mojio authentication server.
+  mojio_client.authorize('joshcheng','ssbg123').then(function(response,error1){
+
+      if(typeof(err)!="undefined")
+      {
+          console.log("login error");
+          return;
+      }
+
+      // login successful
+      // write your logic here
+      console.log('success');
+      mojio_client.getPath('/v2/trips/{94cd834d-57eb-48df-b0fc-d7584e8cfb11}').then(function(result, error) {
           console.log(result);
           data = result;
           res.send(result);

@@ -7,7 +7,6 @@
 var Promise = require('es6-promise').Promise;
 
 var express = require('express');
-var fs = require('fs')
 var MojioClientLite= require("mojio-client-lite");
 var app = express();
 
@@ -18,11 +17,54 @@ app.set('view engine', 'ejs');
 
 // use res.render to load up an ejs view file
 app.get('/', function (req, res) {
+
+  // var config = {
+  //     application: '231e02f3-c70f-49e4-a021-bb8e77378cc4',
+  //     secret:'6d972ed3-28d3-4f1b-a6c2-c1838954e566'
+  // };
+  //
+  // var mojio_client = new MojioClientLite(config);
+  // var data;
+  // if (mojio_client.token())
+    // {
+        // alert("Authorization Successful.");
+        // Here you can call API calls for authorized user
+        // console.log('success');
+    // }
+    // else
+    // {
+        // No authorized user, redirect to Mojio authentication server.
+        // mojio_client.authorize('dannyblackstock','Demo1234').then(function(res,err){
+        //
+        //     if(typeof(err)!="undefined")
+        //     {
+        //         console.log("login error");
+        //         return;
+        //     }
+
+            // login successful
+            // write your logic here
+            // alert('success!!');
+            // $('body').append(data);
+        //     console.log('success');
+        //     data = mojio_client.get().me().then(function(result) {
+        //         // result = initResolve
+        //         // return Promise.resolve("secondPromise");
+        //         console.log(result);
+        //     });
+        // })
+    // }
+
+  // res.send('Hello World!');
+  // res.send(data);
   res.render('pages/index');
+  // res.render('pages/index', {
+  //       username: data.UserName
+  //   });
 });
 
 // use res.render to load up an ejs view file
-app.get('/getDanny', function (req, res) {
+app.get('/getUserName', function (req, res) {
   var config = {
       application: '231e02f3-c70f-49e4-a021-bb8e77378cc4',
       secret:'6d972ed3-28d3-4f1b-a6c2-c1838954e566'
@@ -46,10 +88,6 @@ app.get('/getDanny', function (req, res) {
       mojio_client.getPath('/v2/trips/').then(function(result, error) {
           console.log(result);
           data = result;
-          // data = result;
-          var m = JSON.parse(fs.readFileSync('public/database.json').toString());
-          m[0].NumberOfTrips = result.Data.length;
-          fs.writeFile('public/database.json', JSON.stringify(m));
           res.send(result);
       });
   })
@@ -80,21 +118,12 @@ app.get('/getUser2', function (req, res) {
       console.log('success');
       mojio_client.getPath('/v2/trips/{94cd834d-57eb-48df-b0fc-d7584e8cfb11}').then(function(result, error) {
           console.log(result);
+          data = result;
           res.send(result);
       });
   })
 
   // res.send(data);
-});
-
-app.get('/getDannyStats', function(req, res) {
-  fs.readFile('public/database.json', 'utf8', function (err,data) {
-    if (err) {
-      return console.log(err);
-    }
-    res.send(data);
-    console.log(data);
-  });
 });
 
 app.listen(3000, function () {
